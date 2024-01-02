@@ -46,16 +46,44 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+/* write all the steps invloved */1.Create a new project in Quartus II software.
+2.Name the project as uc for upcounter and dc for downcounter.
+3.Create a new Verilog HDL file in the project file.
+4.Name the module as dc and uc for downcounter and upcounter.
+5.Within the module declare input and output variables.
+6.Complete the program.
+7.End the module.
+
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Hema.S
+RegisterNumber:  212223050020
+*/UP COUNTER :
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+DOWN COUNTER :
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
 
 
 
@@ -63,9 +91,11 @@ RegisterNumber:
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+upcounter:
 
-
-
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/cf2906c6-2384-4b36-936c-f735977388b0)
+downcounter:
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/c6432e07-1bca-41e3-8884-0dfd6cc54e64)
 
 
 
@@ -73,16 +103,32 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+upcounter:
+
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/b22548d5-c85d-451f-88c4-7cad81395ed5)
 
 
 
+
+downcounter:
+
+
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/f094ec42-7ee0-4f94-b198-384d42559393)
 
 
 ### TRUTH TABLE 
 
+upcounter:
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/00ed9bc9-1988-47de-b1c0-b7ab3a98da84)
 
 
+
+
+douncounter:
+
+![image](https://github.com/Hema23013960/Exp-7-Synchornous-counters-/assets/154524429/8abfd274-2e1a-4151-a4c8-b20a430610ca)
 
 
 
 ### RESULTS 
+By this we have verified the truth table of 3-bit up-counter using verilog.
